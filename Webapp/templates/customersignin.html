@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Registration or Sign Up form in HTML CSS | CodingLab </title>
+    <link rel="stylesheet" href="{% static 'assets/css/sigin.css' %}">
+   </head>
+<body>
+  <div class="wrapper">
+    <h2>Sign Up</h2>
+    <form action="{% url 'signup' %}" method="post" enctype="multipart/form-data" name="sigup" onsubmit="validate()">
+      {% csrf_token %}
+      <div class="input-box">
+        <input type="text" placeholder="Username" name="uname">
+      </div>
+      <div class="input-box">
+        <input type="email" placeholder="Email" name="email">
+      </div>
+      <div class="input-box">
+        <input type="password" placeholder="Password" name="password1">
+      </div>
+      <div class="input-box">
+          <input type="password" placeholder="Confirm Password" name="password2">
+      </div>
+      <div class="input-box">
+          <input type="file" placeholder="profile image" class="input-field" name="p_img">
+      </div>
+      <div class="input-box button">
+        <input type="Submit" value="Sign Up">
+      </div>
+      <div class="text">
+        <h3>Already have an account? <a href="{% url 'customerlogin' %}">Login now</a></h3>
+      </div>
+    </form>
+  </div>
+</body>
+<script>
+    function validate(){
+        uname = document.sigup.uname.value;
+        email = document.sigup.email.value;
+        p1 = document.sigup.password1.value;
+        p2 = document.sigup.password2.value;
+        p_img = document.sigup.p_img.value;
+        if (uname == null || uname == ""){
+            alert("username can't be null value..!")
+            return false;
+        }
+        else if (email == null || email == ""){
+            alert("email field can't be null value..!")
+            return false;
+        }
+        else if (p_img == null || p_img == ""){
+            alert("image required..!")
+            return false;
+        }
+        else if (p1 == null || p1 == ""){
+            alert("password must be entered..!..!")
+            return false;
+        }
+        else if (p1.length<6){
+            alert("password must be more than 6 characters...!")
+            return false;
+        }
+        else if (p1 == p2){
+            return true;
+        }
+        else{
+            alert("password doesnt match....!")
+            return false;
+        }
+    }
+</script>
+</html>

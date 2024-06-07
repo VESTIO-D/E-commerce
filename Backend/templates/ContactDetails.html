@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block contents %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+</head>
+<style>
+    a{
+        text-decoration: none;
+    }
+</style>
+<body>
+    <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>
+                            Name
+                          </th>
+                          <th>
+                            Email
+                          </th>
+                          <th>
+                            Phone
+                          </th>
+                          <th>
+                            Subject
+                          </th>
+                          <th>
+                            Message
+                          </th>
+                          <th>
+                            Options
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for i in data %}
+                        <tr>
+                            <td>{{i.name}}</td>
+                            <td>{{i.email}}</td>
+                            <td>{{i.phone}}</td>
+                            <td>{{i.subject}}</td>
+                            <td>{{i.message}}</td>
+                            <td>
+                                <a href="{% url 'delContact' Id=i.id %}">
+                                    <button>delete</button>
+                                </a>
+                            </td>
+
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+</body>
+</html>
+{% endblock %}
