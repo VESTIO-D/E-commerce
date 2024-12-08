@@ -76,19 +76,19 @@
 									</ul>
 								</li>
 								<li><a href="{% url 'our_products' %}">Our Products</a></li>
-								<li><a href="news.html">News</a>
-									<ul class="sub-menu">
-										<li><a href="news.html">News</a></li>
-										<li><a href="single-news.html">Single News</a></li>
-									</ul>
-								</li>
+<!--								<li><a href="news.html">News</a>-->
+<!--									<ul class="sub-menu">-->
+<!--										<li><a href="news.html">News</a></li>-->
+<!--										<li><a href="single-news.html">Single News</a></li>-->
+<!--									</ul>-->
+<!--								</li>-->
 								<li><a href="{% url 'contact' %}">Contact</a></li>
-								<li><a href="shop.html">Shop</a>
+								<li><a href="{% url 'our_products' %}">Shop</a>
 									<ul class="sub-menu">
-										<li><a href="shop.html">Shop</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
-										<li><a href="single-product.html">Single Product</a></li>
-										<li><a href="cart.html">Cart</a></li>
+										<li><a href="{% url 'our_products' %}">Shop</a></li>
+										<li><a href="{% url 'checkoutpage' %}">Check Out</a></li>
+<!--										<li><a href="single-product.html">Single Product</a></li>-->
+										<li><a href="{% url 'cartpage' %}">Cart</a></li>
 									</ul>
 								</li>
 								{% if request.session.username %}
@@ -146,7 +146,7 @@
 							<p class="subtitle">Fresh & Organic</p>
 							<h1>Delicious Seasonal Fruits</h1>
 							<div class="hero-btns">
-								<a href="shop.html" class="boxed-btn">Fruit Collection</a>
+								<a href="{% url 'our_products' %}" class="boxed-btn">Fruit Collection</a>
 								<a href="{% url 'contact' %}" class="bordered-btn">Contact Us</a>
 							</div>
 						</div>

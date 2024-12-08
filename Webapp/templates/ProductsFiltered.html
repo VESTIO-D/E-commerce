@@ -58,9 +58,9 @@
 						<!-- logo -->
 
 						<!-- menu start -->
-<nav class="main-menu">
+						<nav class="main-menu">
 							<ul>
-								<li><a href="{% url 'homepage' %}">Home</a>
+								<li class="current-list-item"><a href="{% url 'homepage' %}">Home</a>
 									<ul class="sub-menu">
 										<li><a href="index.html">Static Home</a></li>
 										<li><a href="index_2.html">Slider Home</a></li>
@@ -75,19 +75,19 @@
 									</ul>
 								</li>
 								<li><a href="{% url 'our_products' %}">Our Products</a></li>
-								<li><a href="news.html">News</a>
-									<ul class="sub-menu">
-										<li><a href="news.html">News</a></li>
-										<li><a href="single-news.html">Single News</a></li>
-									</ul>
-								</li>
+<!--								<li><a href="news.html">News</a>-->
+<!--									<ul class="sub-menu">-->
+<!--										<li><a href="news.html">News</a></li>-->
+<!--										<li><a href="single-news.html">Single News</a></li>-->
+<!--									</ul>-->
+<!--								</li>-->
 								<li><a href="{% url 'contact' %}">Contact</a></li>
-								<li><a href="shop.html">Shop</a>
+								<li><a href="{% url 'our_products' %}">Shop</a>
 									<ul class="sub-menu">
-										<li><a href="shop.html">Shop</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
-										<li><a href="single-product.html">Single Product</a></li>
-										<li><a href="cart.html">Cart</a></li>
+										<li><a href="{% url 'our_products' %}">Shop</a></li>
+										<li><a href="{% url 'checkoutpage' %}">Check Out</a></li>
+<!--										<li><a href="single-product.html">Single Product</a></li>-->
+										<li><a href="{% url 'cartpage' %}">Cart</a></li>
 									</ul>
 								</li>
 								{% if request.session.username %}
@@ -96,16 +96,17 @@
 										<a href="{% url 'customer_logout' %}">{{ request.session.username }} / SignOut</a>
 									</li>
 								{% else %}
-									<li><a href="{% url 'regsign' %}">Reg / SignIn</a></li>
+									<li><a href="{% url 'customerlogin' %}">Reg / SignIn</a></li>
 								{% endif %}
 								<li>
 									<div class="header-icons">
-										<a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+										<a class="shopping-cart" href="{% url 'cartpage' %}"><i class="fas fa-shopping-cart"></i></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
 									</div>
 								</li>
 							</ul>
-						</nav>						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+						</nav>
+						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
 						<div class="mobile-menu"></div>
 						<!-- menu end -->
 					</div>
